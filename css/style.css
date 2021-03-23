@@ -57,7 +57,16 @@ header, .projects, .work-experience, .education {
 
 }
 
-/* Navigation */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Navigation
+------------------------ */
 
 nav {
     width: 100%;
@@ -119,6 +128,12 @@ header {
 
 /* Projects
 -------------------------- */
+.projects > section:first-of-type {
+    border-bottom: grey solid 1px;
+    padding: 20px 0;
+    margin: 20px;
+}
+
 .projects {
     background: whitesmoke;
     overflow: hidden;
@@ -132,28 +147,44 @@ header {
     display: inline-block;
 }
 
-.projects img {
-    width: 300px;
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 15px;
-}
-
-.item {
-    border-bottom: rgba(208, 208, 208, 0.804) solid 2px;
-    padding: 20px 0;
+.project-item {
+    padding: 40px 0;
 }
 
 /* Work Experience
 -------------------------- */
-.work-experience {
+.work-experience > section {
+    border-bottom: grey solid 1px;
+    padding: 20px;
+    margin: 20px;
+}
 
+.work-experience > section:last-of-type {
+    border-bottom: none;
+}
+
+.job-details h3 ~ p {
+    color: rgb(111, 111, 111);
+    margin: 0;
+    border-left: rgb(50, 200, 200) solid thin;
+    padding-left: 20px;
+}
+
+h3 + p {
+    font-weight: bold;
+}
+
+.job-details h3 {
+    margin-bottom: 5px;
 }
 
 /* Education
 -------------------------- */
 .education {
-    background: whitesmoke;
+    background-image: url(../img/marble.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
     margin: 0;
 }
 
@@ -162,19 +193,41 @@ header {
 footer {
     background: rgb(36, 36, 36);
     color: white;
-    text-align: center;
     padding: 40px;
 }
 
 footer ul {
     list-style: none;
+    padding-left: ;
 }
 
 footer ul li a:hover {
     color: white;
 }
 
-footer li {
-    display: inline;
-    padding: 0 40px;
+/* Queries
+-------------------------- */
+@media screen and (min-width: 900px){
+    .projects img {
+        width: 300px;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 15px;
+    }    
+
+    .job-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 40px;
+    }
+    
+    footer {
+        text-align: center;
+    }
+
+    footer li {
+        display: inline;
+        padding: 0 40px;
+    }
 }
+
